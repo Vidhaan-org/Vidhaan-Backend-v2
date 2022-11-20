@@ -1,0 +1,50 @@
+Case Status
+    Case Number
+    FIR Number
+    Party Name
+    Advocate Name
+    Filing Number
+    Act
+    Case Type
+Case Orders/Judgement
+    Case Number
+    Filling Number
+    Judge Wise
+    Party Name
+    Order Date
+Cause List
+
+
+Case Details
+Case Status
+Petitioner and Advocate (mul)
+Respondent and Advocate (mul)
+Acts (mul)
+FIR Details 
+History of Case Hearing (mul)
+Orders(mul)
+Category Details 
+OBJECTION (mul)
+Document Details (mul)
+
+
+master - court, stage of case, state/district/state, 
+
+
+Case Type
+Filing Number 
+Registration Number
+CNR Number 
+First Hearing Date 
+Next Hearing Date 
+Stage of Case 
+Coram 
+Judicial 
+Petitioner(s), Respondent & Advocate 
+Acts 
+FIR State 
+FIR District 
+FIR police Station
+FIR Number
+FIR Year 
+Cause List Type 
