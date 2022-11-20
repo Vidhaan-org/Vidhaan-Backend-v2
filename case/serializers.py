@@ -37,7 +37,9 @@ class CaseSerializer(serializers.ModelSerializer):
 
             "first_hearing_date", "next_hearing_date", "stage_of_case", "coram", "bench", "state", "judicial", 
             
-            "causelist_name","petitioner", "respondent","petitioner_advocate", "respondent_advocate", "person_involved", "under_act", "under_section", 
+            "causelist_name",
+            "petitioner", "respondent","petitioner_advocate", "respondent_advocate", "person_involved",
+             "under_act", "under_section", 
 
             "fir_state", "fir_district", "fir_police_station", "fir_number", "fir_year", 
 
@@ -46,7 +48,7 @@ class CaseSerializer(serializers.ModelSerializer):
 
 
     def get_petitioner(self,instance):
-        return UserSerializer(instance.petitioner, many = True).data or None
+        return UserDetailsSerializer(instance.petitioner, many = True).data or None
 
     def get_respondent(self,instance):
         return UserSerializer(instance.respondent, many = True).data or None
