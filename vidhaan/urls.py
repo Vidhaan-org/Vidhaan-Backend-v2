@@ -16,11 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import re_path, include
 from rest_framework_simplejwt import views as jwt_views
+from graphene_django.views import GraphQLView
+from django.views.decorators.csrf import csrf_exempt
+from django.urls import path
 
 urlpatterns = [
     re_path("admin/", admin.site.urls),
     re_path('api/token/',jwt_views.TokenObtainPairView.as_view(), name ='token_obtain_pair'),
     re_path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name ='token_refresh'),
-    re_path("case/", include('case.urls')),
-    # path("user/", include('user.urls'))
+    re_path("case", include('case.urls')),
+    path("user", include('user.urls')),
+    path("graphql", csrf_exempt(GraphQLView.as_view(graphiql=True))),
 ]

@@ -48,16 +48,26 @@ class CaseSerializer(serializers.ModelSerializer):
 
 
     def get_petitioner(self,instance):
-        return UserDetailsSerializer(instance.petitioner, many = True).data or None
+        if instance.petitioner:
+            return UserSerializer(instance.petitioner, many = True).data or None
+        else: return ""
 
     def get_respondent(self,instance):
-        return UserSerializer(instance.respondent, many = True).data or None
-      
+        if instance.respondent: 
+            return UserSerializer(instance.respondent, many = True).data or None
+        else: return ""
+
     def get_petitioner_advocate(self,instance):
-        return UserSerializer(instance.petitioner_advocate, many = True).data or None
+        if instance.petitioner_advocate:
+            return UserSerializer(instance.petitioner_advocate, many = True).data or None
+        else: return ""
     
     def get_respondent_advocate(self,instance):
-        return UserSerializer(instance.respondent_advocate, many = True).data or None
+        if instance.respondent_advocate:
+            return UserSerializer(instance.respondent_advocate, many = True).data or None
+        else: return ""
 
     def get_person_involved(self, instance):
-        return UserSerializer(instance.person_involved, many = True).data or None
+        if instance.person_involved:
+            return UserSerializer(instance.person_involved, many = True).data or None
+        else: return ""

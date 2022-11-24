@@ -88,7 +88,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
 
 
 class UserDetails(models.Model):
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user = models.OneToOneField(User, on_delete = models.CASCADE)
     user_type = models.CharField(max_length = 20, choices = choose.ACCESS_TYPE, blank = True, null = True)
 
     gender = models.CharField(max_length=10, choices = choose.USER_GENDER, null = True, blank = True)

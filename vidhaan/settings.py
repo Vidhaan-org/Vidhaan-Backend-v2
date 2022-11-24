@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    'django_filters',
+    'corsheaders',
+    'graphene_django',
+
     'case',
     'user'
 ]
@@ -50,6 +54,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "corsheaders.middleware.CorsMiddleware"
 ]
 
 ROOT_URLCONF = "vidhaan.urls"
@@ -127,4 +132,19 @@ SIMPLE_JWT={
     'ACCESS_TOKEN_LIFETIME': timedelta(days=150),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=10),
     'ROTATE_REFRESH_TOKENS': False 
+}
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend',]
+}
+
+
+import django
+from django.utils.encoding import force_str
+
+django.utils.encoding.force_text = force_str
+
+
+GRAPHENE = {
+    "SCHEMA": "case.schema.schema"
 }
